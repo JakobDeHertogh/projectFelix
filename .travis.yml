@@ -1,0 +1,18 @@
+language: python
+sudo: required
+
+install:
+- pip install -r requirements.txt
+# command to run tests
+script:
+# unit test
+- python -m pytest -v
+# deploy to heroku, this only happens if all tests succeed!
+deploy:
+  provider: heroku
+  app: shrouded-headland-26361
+  api_key:
+    secure: "OaCMthxdbnIxQtBQ2OyRztWIpcxX8K/AL1G+56y95woeih6yjYQl2WkdmGDSkmVpzMDpNRv9fy/jMzYws5q+ayM2Ve31x2d9OVfGupyPxDAARHbTLXxSfzrmsqbqOZ6DHM/bjD/mhb4bLOiRBeI1259fgRA/In3dNJgPogkLRRXJ2EsZHfDYQ/gFWl+IpeUW6V+5fcUcBFUNcvgrpKh3dR1pplbm5xohivRgRXJReoHUdBdxNtzU4Y4S5+4m9+je0EugOWhM9F9bqCGeywtKoMtxe6gb4osvNED8KpFLpGOQ4XjyTWqRmTPO8M2HRB4huw5OomPbt5dm10D2+T8j7qtev4IxVLZ95rOoliw/mwOXTFfUSo/SMyKBFQKYluc5xTOg1ronfSezFUdY0Lt9GOx+c9uIBp+5NBbFHKBcHJCDJm970AaR3U4F44iIuKcwT/HrgImhz/fDNvlukXELhBKHa07dOlLH3lcJnhWnzTSnBtrauBXfvUIrP5foO/pBJ2sCSzNaz8aYH/F+sGtwVOPdBWbXndPFzm8zyvsZPYIRmi5wbE0aQewN/pJWnQTUaywWUE4fx0ogMO/zhDjIoTbV2oIUez55rk3rIh8csHoCpEonhH1sdKcwuelRWwlqULKMxF53dt5O8W++QZMm3LstnbURZjPs/8TR+QgenWw="
+# wheeee it works!
+after_succes:
+  - echo("succes!")
